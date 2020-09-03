@@ -12,7 +12,11 @@ const forecast = (lat , long ,callback)=>{
         }else if(body.error){
             callback({errType:body.error.type,errInfo:response.body.error.info} , undefined)
         }else{
-            callback(undefined ,  `It is ${currentWeather.weather_descriptions[0]} throughout the day. It is currently ${currentWeather.temperature} degrees out. It feels like ${currentWeather.feelslike} degrees out.`);
+            callback(undefined ,  `
+            It is ${currentWeather.weather_descriptions[0]} throughout the day. 
+            It is currently ${currentWeather.temperature} degrees out. 
+            It feels like ${currentWeather.feelslike} degrees out.  Humidity is %${currentWeather.humidity} right now.
+            `);
         }
 
     });
